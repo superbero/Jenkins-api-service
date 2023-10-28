@@ -14,53 +14,12 @@ Deployment:
     image: nginx
     port: 9090
 
-# volumes:
-#   storageClassName: standard
-#   accessModes: ReadWriteMany
-  
-#   persistentvolume:
-#     name: postgres-data-jenkins
-#     size: 10Gi
-#     volume_path: /Users/admin/data
-   
-#   persistentvolumeclaim:
-#     size: 2Gi
-#     storageClassName: standard
-#     accessModes: ReadWriteMany
-
-#     cast_db:
-#       name: postgres-data-cast
-    
-#     movie_db:
-#       name: postgres-data-movie
-
 services:
-  # postgres_cast:
-  #   name: pg-cast
-  #   type: ClusterIP
-  #   port: 5432
-  #   targetPort: 5432
-  
-  # postgres_movie:
-  #   name: pg-movie
-  #   type: ClusterIP
-  #   ports:  5432
-  #   targetPort: 5432
 
   nginx:
     type: LoadBalancer
     ports: 9090
     targetPort: 9090
-    name: nginx
-
-  # movie_service:
-  #   type: ClusterIP
-  #   name: movie
-  #   port: 8000
-  #   targetPort: 8000
-
-  # cast_service:
-  #   type: ClusterIP
-  #   name: cast
-  #   port: 8000
-  #   targetPort: 8000
+    name: nginx-service
+    app: nginx
+    protocol: TCP
